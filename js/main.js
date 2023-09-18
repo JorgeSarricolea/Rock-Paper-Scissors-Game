@@ -1,34 +1,34 @@
-// Función para obtener la elección aleatoria de la computadora
+// Funtion to get random choise by the PC
 function getComputerChoice() {
   const choices = ["rock", "paper", "scissors"];
   const randomIndex = Math.floor(Math.random() * 3);
   return choices[randomIndex];
 }
 
-// Función para determinar el resultado del juego
+// Function to get the status of the game
 function determineWinner(userChoice, computerChoice) {
   if (userChoice === computerChoice) {
-    return "Empate";
+    return "TIE";
   } else if (
     (userChoice === "rock" && computerChoice === "scissors") ||
     (userChoice === "paper" && computerChoice === "rock") ||
     (userChoice === "scissors" && computerChoice === "paper")
   ) {
-    return "¡Ganaste!";
+    return "YOU WON!";
   } else {
-    return "La computadora ganó.";
+    return "JAVASCRIPT WON";
   }
 }
 
-// Función principal para manejar el juego
+// Main Function to play the game
 function playGame(userChoice) {
   const computerChoice = getComputerChoice();
   const result = determineWinner(userChoice, computerChoice);
-  const resultMessage = `Elegiste ${userChoice}, la computadora eligió ${computerChoice}. ${result}`;
+  const resultMessage = `You chose ${userChoice}, JavaScript chose ${computerChoice}. ${result}`;
   document.querySelector(".result").textContent = resultMessage;
 }
 
-// Agregar eventos a los botones
+// Functions for each buttons
 document.getElementById("rock").addEventListener("click", () => {
   playGame("rock");
 });
