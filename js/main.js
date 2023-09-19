@@ -16,6 +16,7 @@ function toggleOptions(userChoice, computerChoice) {
   const options = ["rock", "paper", "scissors"];
   options.forEach(option => {
     const button = document.getElementById(option);
+    button.dataset.clickable = "false";
     button.style.display = "none";
   });
 
@@ -77,14 +78,24 @@ function toggleOptions(userChoice, computerChoice) {
   }
 }
 
-
 // Function for each button
 document.getElementById("rock").addEventListener("click", () => {
-  playGame("rock");
+  const isClickable = document.getElementById("rock").dataset.clickable === "true";
+  if (isClickable) {
+    playGame("rock");
+  }
 });
+
 document.getElementById("paper").addEventListener("click", () => {
-  playGame("paper");
+  const isClickable = document.getElementById("paper").dataset.clickable === "true";
+  if (isClickable) {
+    playGame("paper");
+  }
 });
+
 document.getElementById("scissors").addEventListener("click", () => {
-  playGame("scissors");
+  const isClickable = document.getElementById("scissors").dataset.clickable === "true";
+  if (isClickable) {
+    playGame("scissors");
+  }
 });

@@ -51,6 +51,10 @@ button:hover {
   height: 270px;
 }
 
+button[data-clickable="false"] {
+  pointer-events: none;
+}
+
 .computer-choice {
   display: flex;
   justify-content: center;
