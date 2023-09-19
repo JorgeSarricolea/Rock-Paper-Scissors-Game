@@ -7,14 +7,36 @@
   <!-- CSS Main Files -->
   <link rel="stylesheet" href="styles/styles.css">
 
+  <!-- Font Awesome Link -->
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+  />
+
   <title>Rock, Paper or Scissors Game</title>
 </head>
 <body>
-  <h1>Lets play!</h1>
-  <button id="rock">Rock</button>
-  <button id="paper">Paper</button>
-  <button id="scissors">Scissors</button>
-  <div class="result"></div>
+  <div class="main-container">
+    <h1>Lets play!</h1>
+    <div class="options">
+      <button id="rock"><i class="fa-solid fa-hand-back-fist"></i></button>
+      <button id="paper"><i class="fa-solid fa-hand"></i></button>
+      <button id="scissors"><i class="fa-solid fa-hand-scissors"></i></button>
+    </div>
+    <div class="computer-choice">
+      <div id="pc-rock" class="pc-option">
+        <i class="fa-solid fa-hand-back-fist"></i>
+      </div>
+      <div id="pc-paper" class="pc-option">
+        <i class="fa-solid fa-hand"></i>
+      </div>
+      <div id="pc-scissors" class="pc-option">
+        <i class="fa-solid fa-hand-scissors"></i>
+      </div>
+    </div>
+    <div class="result"></div>
+    <div class="winner"></div>
+  </div>
 
   <!-- JS Main Files -->
   <script src="js/main.js"></script>

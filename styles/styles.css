@@ -3,3 +3,70 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+:root {
+  --beige: #F2E3D5;
+  --dark-blue: #012E40;
+  --aqua: #3CA6A6;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: "Poppins", sans-serif;
+  background-color: var(--dark-blue);
+}
+
+.main-container h1 {
+  color: var(--beige);
+  text-align: center;
+}
+
+.options {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+/* Buttons */
+
+button {
+  background-color: var(--aqua);
+  color: var(--dark-blue);
+  cursor: pointer;
+  border: none;
+  border-radius: 25px;
+  padding: 10px;
+  font-size: 100px;
+  transition: .2s ease-in;
+  width: 250px;
+  height: 250px;
+}
+
+button:hover {
+  background-color: var(--beige);
+  font-size: 120px;
+  width: 270px;
+  height: 270px;
+}
+
+.computer-choice {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.pc-option {
+  display: none;
+  background-color: var(--aqua);
+  color: var(--dark-blue);
+  border: none;
+  text-align: center;
+  border-radius: 25px;
+  padding: 10px;
+  font-size: 100px;
+  width: 250px;
+  height: 250px;
+}
