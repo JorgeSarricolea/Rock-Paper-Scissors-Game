@@ -8,69 +8,120 @@
   --beige: #F2E3D5;
   --dark-blue: #012E40;
   --aqua: #3CA6A6;
+  --gray: #a3a3a3;
+  --red: #d71e0d;
+  --green: #37ac13;
 }
 
 body {
   display: flex;
   flex-direction: column;
   font-family: "Poppins", sans-serif;
-  background-color: var(--dark-blue);
+  background-color: var(--beige);
+  transition: background-color 1s ease .5s;
 }
 
-.main-container h1 {
-  color: var(--beige);
+.computer-won {
+  background-color: var(--red);
+}
+
+.user-won {
+  background-color: var(--green);
+}
+
+h1 {
+  margin-top: 20px;
+  color: var(--dark-blue);
   text-align: center;
+  font-size: 48px;
+  border-bottom: 20px solid var(--aqua);
+  width: 30%;
+  border-radius: 50%;
+  margin: 20px auto 0px auto;
+  padding-bottom: 10px;
+}
+
+.main-container {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.main-container button {
+  margin: 40px;
 }
 
 .options {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-self: left;
   gap: 40px;
 }
 
 /* Buttons */
 
-button {
+.options button {
   background-color: var(--aqua);
   color: var(--dark-blue);
   cursor: pointer;
   border: none;
   border-radius: 25px;
-  padding: 10px;
   font-size: 100px;
   transition: .2s ease-in;
   width: 250px;
   height: 250px;
 }
 
-button:hover {
+.computer-choice button {
+  display: none;
+  background-color: transparent;
+  color: var(--dark-blue);
+  border: none;
+  border-radius: 25px;
+  font-size: 150px;
+  transition: .2s ease-in;
+  width: 250px;
+  height: 250px;
+}
+
+.computer-choice i {
+  margin: auto auto;
+}
+
+.options button:hover {
   background-color: var(--beige);
-  font-size: 120px;
+  text-shadow: 10px 10px 5px var(--gray);
+  font-size: 150px;
   width: 270px;
   height: 270px;
 }
 
-button[data-clickable="false"] {
+.options button[data-clickable="false"] {
   pointer-events: none;
+  background-color: transparent;
+  font-size: 150px;
 }
 
 .computer-choice {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 40px;
 }
 
-.pc-option {
-  display: none;
-  background-color: var(--aqua);
-  color: var(--dark-blue);
-  border: none;
-  text-align: center;
-  border-radius: 25px;
+#restart {
+  display: flex;
+  margin: 0 auto;
+  background-color: var(--dark-blue);
+  color: var(--beige);
+  cursor: pointer;
+  transition: .2s ease-in;
   padding: 10px;
-  font-size: 100px;
-  width: 250px;
-  height: 250px;
+  border-radius: 25px;
+}
+
+#restart:hover {
+  background-color: var(--beige);
+  color: var(--dark-blue);
+  font-weight: bold;
+  font-size: 18px;
 }

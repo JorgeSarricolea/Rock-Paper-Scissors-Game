@@ -1,29 +1,30 @@
+const options = ["rock", "paper", "scissors"];
 // Function to get a random choice by the computer
 function getComputerChoice() {
-  const choices = ["rock", "paper", "scissors"];
   const randomIndex = Math.floor(Math.random() * 3);
-  return choices[randomIndex];
+  return randomIndex;
 }
 
 // Main function to play the game
 function playGame(userChoice) {
-  const computerChoice = getComputerChoice();
-  toggleOptions(userChoice, computerChoice);
+  // const computerChoice = getComputerChoice();
+  const n = getComputerChoice();
+  toggleOptions(userChoice, n);
+  gameResults(userChoice, n);
 }
 
 // Function to hide and show the options
 function toggleOptions(userChoice, computerChoice) {
-  const options = ["rock", "paper", "scissors"];
   options.forEach(option => {
     const button = document.getElementById(option);
     button.dataset.clickable = "false";
     button.style.display = "none";
-  });
 
-  // Show the user choice
-  const userChoiceButton = document.getElementById(userChoice);
-  userChoiceButton.style.display = "inline-block";
-  console.log("User choice:", userChoice)
+    // Show the user choice
+    const userChoiceButton = document.getElementById(options[userChoice]);
+    userChoiceButton.style.display = "inline-block";
+    console.log("User choice:", userChoice)
+  });
 
   // Show the computer choice
   console.log("Computer choice:", computerChoice)
@@ -31,71 +32,63 @@ function toggleOptions(userChoice, computerChoice) {
   const pcChoicePaper = document.getElementById("pc-paper");
   const pcChoiceScissors = document.getElementById("pc-scissors");
 
-  if (computerChoice === "rock") {
-    pcChoiceRock.style.display = "inline-block";
-  }
-  else if (computerChoice === "paper") {
-    pcChoicePaper.style.display = "inline-block";
-  }
-  else if (computerChoice === "scissors") {
-    pcChoiceScissors.style.display = "inline-block";
-  }
+  const pcResults = [pcChoiceRock, pcChoicePaper, pcChoiceScissors];
+  pcResults[computerChoice].style.display = "flex"
+}
 
-  // Conditions if computer wins
-
-  if (computerChoice === "rock" && userChoice === "scissors") {
-    console.log("Computer won!");
-  }
-  if (computerChoice === "paper" && userChoice === "rock") {
-    console.log("Computer won!");
-  }
-  if (computerChoice === "scissors" && userChoice === "paper") {
-    console.log("Computer won!");
-  }
-
-  // Conditions if user wins
-
-  if (computerChoice === "rock" && userChoice === "paper") {
-    console.log("You won!");
-  }
-  if (computerChoice === "paper" && userChoice === "scissors") {
-    console.log("You won!");
-  }
-  if (computerChoice === "scissors" && userChoice === "rock") {
-    console.log("You won!");
-  }
-
-  // Conditions if tie
-
-  if (computerChoice === "rock" && userChoice === "rock") {
+function gameResults(userChoice, computerChoice) {
+  if (computerChoice === userChoice) {
     console.log("Tie!");
-  }
-  if (computerChoice === "paper" && userChoice === "paper") {
-    console.log("Tie!");
-  }
-  if (computerChoice === "scissors" && userChoice === "scissors") {
-    console.log("Tie!");
+  } else {
+    switch (computerChoice) {
+      case 0:
+        if (userChoice === 1) {
+          console.log("You won!");
+          document.body.classList.toggle("user-won");
+        } else {
+          console.log("Computer won!");
+          document.body.classList.toggle("computer-won");
+        }
+        break;
+      case 1:
+        if (userChoice === 2) {
+          console.log("You won!");
+          document.body.classList.toggle("user-won");
+        } else {
+          console.log("Computer won!");
+          document.body.classList.toggle("computer-won");
+        }
+        break;
+      case 2:
+        if (userChoice === 0) {
+          console.log("You won!");
+          document.body.classList.toggle("user-won");
+        } else {
+          console.log("Computer won!");
+          document.body.classList.toggle("computer-won");
+        }
+        break;
+    }
   }
 }
 
-// Function for each button
-document.getElementById("rock").addEventListener("click", () => {
-  const isClickable = document.getElementById("rock").dataset.clickable === "true";
-  if (isClickable) {
-    playGame("rock");
-  }
-});
+function showResults(action, n) {
+  document.getElementById(action).addEventListener("click", () => {
+    const isClickable = document.getElementById(action).dataset.clickable === "true";
+    if (isClickable) {
+      playGame(n);
+    }
+  });
+}
 
-document.getElementById("paper").addEventListener("click", () => {
-  const isClickable = document.getElementById("paper").dataset.clickable === "true";
-  if (isClickable) {
-    playGame("paper");
-  }
-});
+for (var i = 0; i < 3; i++) {
+  (function (index) {
+    showResults(options[index], index);
+  })(i);
+}
 
-document.getElementById("scissors").addEventListener("click", () => {
-  const isClickable = document.getElementById("scissors").dataset.clickable === "true";
-  if (isClickable) {
-    playGame("scissors");
-  }
+// Refresh the page to restart the game
+const refreshButton = document.getElementById("restart");
+refreshButton.addEventListener("click", () => {
+  location.reload();
 });

@@ -16,27 +16,23 @@
   <title>Rock, Paper or Scissors Game</title>
 </head>
 <body>
+  <h1>Lets play!</h1>
   <div class="main-container">
-    <h1>Lets play!</h1>
     <div class="options">
       <button id="rock" data-clickable="true"><i class="fa-solid fa-hand-back-fist"></i></button>
       <button id="paper" data-clickable="true"><i class="fa-solid fa-hand"></i></button>
       <button id="scissors" data-clickable="true"><i class="fa-solid fa-hand-scissors"></i></button>
     </div>
     <div class="computer-choice">
-      <div id="pc-rock" class="pc-option">
-        <i class="fa-solid fa-hand-back-fist"></i>
-      </div>
-      <div id="pc-paper" class="pc-option">
-        <i class="fa-solid fa-hand"></i>
-      </div>
-      <div id="pc-scissors" class="pc-option">
-        <i class="fa-solid fa-hand-scissors"></i>
+      <button id="pc-rock" class="pc-option" data-clickable="true"><i class="fa-solid fa-hand-back-fist"></i></button>
+      <button id="pc-paper" class="pc-option" data-clickable="true"><i class="fa-solid fa-hand"></i></button>
+      <button id="pc-scissors" class="pc-option" data-clickable="true"><i class="fa-solid fa-hand-scissors"></i></button>
       </div>
     </div>
-    <div class="result"></div>
-    <div class="winner"></div>
   </div>
+    <div class="result">
+    </div>
+    <button id="restart">Reiniciar</button>
 
   <!-- JS Main Files -->
   <script src="js/main.js"></script>
