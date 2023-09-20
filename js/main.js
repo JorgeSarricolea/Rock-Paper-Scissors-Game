@@ -86,6 +86,9 @@ function showResults(action, n) {
     }
     // To show the restart button
     document.getElementById("restart").style.display = "flex";
+
+    //To hide the main title
+    document.getElementById("main-title").classList.toggle("hide-style");
   });
 }
 
