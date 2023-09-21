@@ -59,7 +59,6 @@ h1 {
 .options {
   display: flex;
   justify-self: left;
-  gap: 40px;
 }
 
 /* Buttons */
@@ -139,4 +138,42 @@ h1 {
   color: var(--dark-blue);
   font-size: 64px;
   font-weight: bold;
+}
+
+/* Media Querys */
+
+@media (max-width: 767px) {
+  h1 {
+    width: 80%;
+  }
+
+  .main-container button {
+    margin: 10px;
+  }
+
+  .options button:hover {
+    font-size: 120px;
+    width: 195px;
+    height: 195px;
+  }
+
+  .options {
+    flex-direction: column;
+  }
+
+  .options button {
+    font-size: 70px;
+    width: 175px;
+    height: 175px;
+  }
+
+  .computer-choice button {
+    font-size: 120px;
+    width: 175px;
+    height: 175px;
+  }
+
+  .options button[data-clickable="false"] {
+    font-size: 120px;
+  }
 }
