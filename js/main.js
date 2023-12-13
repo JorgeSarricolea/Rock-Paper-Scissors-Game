@@ -16,7 +16,7 @@ function playGame(userChoice) {
 
 // Function to hide and show the options
 function toggleOptions(userChoice, computerChoice) {
-  options.forEach(option => {
+  options.forEach((option) => {
     const button = document.getElementById(option);
     button.dataset.clickable = "false";
     button.style.display = "none";
@@ -35,52 +35,52 @@ function toggleOptions(userChoice, computerChoice) {
   pcResults[computerChoice].style.display = "flex";
 }
 
-// Function to determine the result of the game
+// Function to determine the result of the game using a hash table
 function gameResults(userChoice, computerChoice) {
-  const userWonMessage = "you won!";
-  const computerWonMessage = "computer won!";
-  const tieMessage = "tie!";
+  const resultMessages = {
+    tie: "tie!",
+    userWon: "you won!",
+    computerWon: "computer won!",
+  };
+
+  const outcomes = {
+    "0-0": "tie",
+    "0-1": "computerWon",
+    "0-2": "userWon",
+    "1-0": "userWon",
+    "1-1": "tie",
+    "1-2": "computerWon",
+    "2-0": "computerWon",
+    "2-1": "userWon",
+    "2-2": "tie",
+  };
+
+  const resultKey = `${userChoice}-${computerChoice}`;
+  const result = outcomes[resultKey];
+
   const showMesage = document.getElementById("result-text");
-  if (computerChoice === userChoice) {
-    document.body.classList.toggle("tie");
-    showMesage.textContent = tieMessage.toUpperCase();
-  } else {
-    switch (computerChoice) {
-      case 0:
-        if (userChoice === 1) {
-          document.body.classList.toggle("user-won");
-          showMesage.textContent = userWonMessage.toUpperCase();
-        } else {
-          document.body.classList.toggle("computer-won");
-          showMesage.textContent = computerWonMessage.toUpperCase();
-        }
-        break;
-      case 1:
-        if (userChoice === 2) {
-          document.body.classList.toggle("user-won");
-          showMesage.textContent = userWonMessage.toUpperCase();
-        } else {
-          document.body.classList.toggle("computer-won");
-          showMesage.textContent = computerWonMessage.toUpperCase();
-        }
-        break;
-      case 2:
-        if (userChoice === 0) {
-          document.body.classList.toggle("user-won");
-          showMesage.textContent = userWonMessage.toUpperCase();
-        } else {
-          document.body.classList.toggle("computer-won");
-          showMesage.textContent = computerWonMessage.toUpperCase();
-        }
-        break;
-    }
+  const body = document.body;
+
+  switch (result) {
+    case "tie":
+      body.classList.toggle("tie");
+      break;
+    case "userWon":
+      body.classList.toggle("user-won");
+      break;
+    case "computerWon":
+      body.classList.toggle("computer-won");
+      break;
   }
+
+  showMesage.textContent = resultMessages[result].toUpperCase();
 }
 
 // Funtion to display the results of the game
 function showResults(action, n) {
   document.getElementById(action).addEventListener("click", () => {
-    const isClickable = document.getElementById(action).dataset.clickable === "true";
+    const isClickable =
+      document.getElementById(action).dataset.clickable === "true";
     if (isClickable) {
       playGame(n);
     }

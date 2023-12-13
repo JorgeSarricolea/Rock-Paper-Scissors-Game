@@ -5,9 +5,9 @@
 }
 
 :root {
-  --beige: #F2E3D5;
-  --dark-blue: #012E40;
-  --aqua: #3CA6A6;
+  --beige: #f2e3d5;
+  --dark-blue: #012e40;
+  --aqua: #3ca6a6;
   --gray: #a3a3a3;
   --red: #d71e0d;
   --green: #37ac13;
@@ -18,7 +18,7 @@ body {
   flex-direction: column;
   font-family: "Poppins", sans-serif;
   background-color: var(--beige);
-  transition: background-color 1s ease .5s;
+  transition: background-color 1s ease 0.5s;
 }
 
 /* Styles to change background color */
@@ -68,13 +68,13 @@ h1 {
 }
 
 .options button {
-  background-color: var(--aqua);
+  background-color: transparent;
   color: var(--dark-blue);
   cursor: pointer;
   border: none;
   border-radius: 25px;
   font-size: 100px;
-  transition: .2s ease-in;
+  transition: 0.2s ease-in;
   width: 250px;
   height: 250px;
 }
@@ -86,12 +86,12 @@ h1 {
   border: none;
   border-radius: 25px;
   font-size: 150px;
-  transition: .2s ease-in;
+  transition: 0.2s ease-in;
   width: 250px;
   height: 250px;
 }
 
-.computer-choice i {
+.computer-choice span {
   margin: auto auto;
 }
 
@@ -121,7 +121,7 @@ h1 {
   background-color: var(--dark-blue);
   color: var(--beige);
   cursor: pointer;
-  transition: .2s ease-in;
+  transition: 0.2s ease-in;
   padding: 10px 15px;
   border-radius: 25px;
   font-size: 32px;
@@ -138,6 +138,16 @@ h1 {
   color: var(--dark-blue);
   font-size: 64px;
   font-weight: bold;
+}
+
+#copyright {
+  margin: 100px auto;
+  color: var(--dark-blue);
+}
+
+#copyright a {
+  font-weight: bold;
+  color: var(--dark-blue);
 }
 
 /* Media Querys */
